@@ -31,7 +31,7 @@
             </form>
         </div>
         <footer class="form-footer">
-            <p>New to Twitter ? <a href="sign.php">Signup for Twitter</a></p>
+            <p>New to Twitter ? <a href="sign">Signup for Twitter</a></p>
         </footer>
     </div>
 </section>

@@ -80,7 +80,7 @@ if(is_post_request()){
             </form>
         </div>
         <footer class="form-footer">
-            <p>Already have an account. <a href="login.php">Login Now</a></p>
+            <p>Already have an account. <a href="login">Login Now</a></p>
         </footer>
     </div>
 </section>

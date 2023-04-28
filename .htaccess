@@ -1,0 +1,4 @@
+      RewriteEngine On
+      
+      RewriteRule ^(verification|sign|login|index)/?$ $1.php
+      

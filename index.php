@@ -16,8 +16,8 @@
                     <h2 class="midle-hading">Happening Now</h2>
                     <h5> Join Tweeter Todey</h5>
                     <div class="s-in wrapper">
-                        <a href="sign.php" class="btn-link sign-up-btn">Sign Up</a>
-                        <a href="login.php" class="btn-link log-in-btn">Log In</a>
+                        <a href="sign" class="btn-link sign-up-btn">Sign Up</a>
+                        <a href="login" class="btn-link log-in-btn">Log In</a>
 
                     </div>
                 </div>

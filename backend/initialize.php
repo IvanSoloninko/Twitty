@@ -12,5 +12,5 @@ spl_autoload_register(function($class){
 session_start();
 
 $account= new Account;
-
+$loadFromUser= new User;
 include_once "functions.php";

@@ -19,7 +19,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'webmanywani@gmail.com';                     //SMTP username
-    $mail->Password   = '5280 1422';                               //SMTP password
+    $mail->Password   = 'fwbpclrzknvfzggq';                               //SMTP password  iosiqdpjpxmoimiq
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -35,9 +35,10 @@ try {
     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
     //Content
+    $body='This is the HTML message body <b>in bold!</b>';
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->Body    = strval($body);
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();

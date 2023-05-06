@@ -3,7 +3,11 @@
  if(isset($_SESSION['userLogedIn'])){
      $user_id=$_SESSION['userLogedIn'];
      $user=$loadFromUser->userData($user_id);
- }else{
+     $linc=Verify::generateLinc();
+     $message="{$user->firstName}, Your account has been created, pleas visit this linc to verifi your email <a href='http:://localhost/Twetty/verification/$linc'> Verifi Linc</a> ";
+     $subject="[TWITTER] Pleas verify your account";
+     $verify->sendToMail($user->email,$message,$subject);
+    }else{
      redirect_to(url_for("index"));
  }
 ?>

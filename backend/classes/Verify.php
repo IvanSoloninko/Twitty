@@ -9,7 +9,7 @@ class Verify{
         return str_shuffle(substr(md5(time().mt_rand().time()), 0,25));
         
     }
-    public function sendToMail($email,$messege,$subject){
+    public function sendToMail($email,$message,$subject){
         $mail=new PHPMailer\PHPMailer\PHPMailer(true);
         $mail->isSMTP();
         $mail->SMTPAuth=true;
@@ -25,8 +25,13 @@ class Verify{
             $mail->addReplyTo="no-reply@gmail.com";
             $mail->addAddress($email);
 
-        if(!$mail->send()){
-            return false;
+            $mail->Subject=$subject;
+            $mail->Body=$message;
+            $mail->AltBody=$message;
+
+
+        if($mail->send()){
+            return false ;
         }
          else{
                 return true;

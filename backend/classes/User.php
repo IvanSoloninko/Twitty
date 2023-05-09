@@ -19,5 +19,23 @@
             return false;
         }
      }
+
+
+     public function create($tableName, $fields=array()){
+        $colums=implode(',' ,array_keys($fields));
+        $values=':'.implode(', :' ,array_keys($fields));
+        $sql="INSERT INTO {$tableName} ({$colums}) VALUES ({$values})";
+          if($stmt=$this->pdo->prepare($sql)){
+            foreach($fields as $key=>$values){
+              $stmt->bindValue(":".$key,$values);
+            }
+            $stmt->execute();
+            return $this->pdo->lastInsertId();
+          }
+
+
+     }
+
+
   }
 ?>

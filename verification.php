@@ -7,6 +7,8 @@
      $message="{$user->firstName}, Your account has been created, pleas visit this linc to verifi your email <a href='http:://localhost/Twetty/verification/$linc'> Verifi Linc</a> ";
      $subject="[TWITTER] Pleas verify your account";
      $verify->sendToMail($user->email,$message,$subject);
+     $loadFromUser->create("verification", ["user_id"=>$user_id, "code"=>$linc]);
+
     }else{
      redirect_to(url_for("index"));
  }

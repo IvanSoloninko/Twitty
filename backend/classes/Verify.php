@@ -1,15 +1,20 @@
 <?php
 class Verify{
     private $pdo;
-    public function __constract(){
+    private $user;
+
+    public function __construct(){
     $this->pdo=Database::instance();
+    $this->user=new User;
     }
 
     public static function generateLinc(){
-        return str_shuffle(substr(md5(time().mt_rand().time()), 0,25));
-        
+        return str_shuffle(substr(md5(time().mt_rand().time()), 0,25));  
     }
-    public function sendToMail($email,$message,$subject){
+    public function verifyCode($targetColum, $code){
+        return $this->user->get('verification', $targetColum, array('code'=>$code));
+    }
+    public function sendToMail($email, $message, $subject){
         $mail=new PHPMailer\PHPMailer\PHPMailer(true);
         $mail->isSMTP();
         $mail->SMTPAuth=true;

@@ -1,13 +1,6 @@
 <?php
 require_once 'backend/initialize.php';
 
-
-$loadFromUser->create("test", ["id"=> 0,"name"=>"Ivan", "email"=>"issis@gmail.com"]);
-
-
-
-
-
-
+var_dump($loadFromUser->get("users",["*"],["user_id"=>1]));
 
 ?>

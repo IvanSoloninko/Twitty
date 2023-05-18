@@ -6,7 +6,27 @@
 
     }
   
-
+    public function get($tableName, $columName=array(), $fields=array()){
+      $targetColums=implode(', ',array_values($columName));
+      $colums="";
+      $i=1;
+      foreach($fields as $name=>$value){
+        $colums.="{$name}=:{$name}";
+          if($i<count($fields)){
+            $colums.=" AND ";
+          }
+        $i++;
+      }
+      
+      $sql="SELECT {$targetColums} FROM {$tableName}  WHERE {$colums}";
+        if($stmt=$this->pdo->prepare($sql)){
+          foreach($fields as $key=>$values){
+            $stmt->bindValue(":".$key,$values);
+          }
+          $stmt->execute();
+          return $stmt->fetch(PDO::FETCH_OBJ);
+        }
+     }
 
   public function userData($userId){
         $stmt=$this->pdo->prepare('SELECT * FROM users WHERE user_id=:userId');
@@ -36,6 +56,7 @@
 
      }
 
-
-  }
+     
+    
+   }
 ?>
